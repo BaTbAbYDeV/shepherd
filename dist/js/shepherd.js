@@ -234,10 +234,14 @@ var Step = (function (_Evented) {
         }
       };
 
+      var bindElement = document.body;
       // TODO: this should also bind/unbind on show/hide
-      document.body.addEventListener(event, handler);
+      if (this.options.advanceOn.bindDirect == true) {
+        bindElement = document.querySelector(selector);
+      }
+      bindElement.addEventListener(event, handler);
       this.on('destroy', function () {
-        return document.body.removeEventListener(event, handler);
+        return bindElement.removeEventListener(event, handler);
       });
     }
   }, {

@@ -46,7 +46,7 @@ gulp.task('js', function() {
     // Minified
     .pipe(uglify({
       mangle: {
-        except: 'Tether'
+        except: ['Tether']
       }
     }))
     .pipe(rename({suffix: '.min'}))

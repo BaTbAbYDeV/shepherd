@@ -213,10 +213,11 @@ var Step = (function (_Evented) {
 
       // An empty selector matches the step element
 
-      var _parseShorthand = parseShorthand(this.options.advanceOn, ['selector', 'event']);
+      var _parseShorthand = parseShorthand(this.options.advanceOn, ['selector', 'event', 'depth']);
 
       var event = _parseShorthand.event;
       var selector = _parseShorthand.selector;
+      var depth = _parseShorthand.depth;
 
       var handler = function handler(e) {
         if (!_this2.isOpen()) {
@@ -226,6 +227,11 @@ var Step = (function (_Evented) {
         if (!isUndefined(selector)) {
           if (matchesSelector(e.target, selector)) {
             _this2.tour.next();
+          } else if (!isUndefined(depth)) {
+            // depth can currently only be 1 whilst testing
+            if (matchesSelector(e.target.parentElement, selector)) {
+              _this2.tour.next();
+            }
           }
         } else {
           if (_this2.el && e.target === _this2.el) {

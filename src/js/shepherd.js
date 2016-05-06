@@ -191,7 +191,7 @@ class Step extends Evented {
 
   bindAdvance() {
     // An empty selector matches the step element
-    const {event, selector} = parseShorthand(this.options.advanceOn, ['selector', 'event']);
+    const {event, selector, depth} = parseShorthand(this.options.advanceOn, ['selector', 'event', 'depth']);
 
     const handler = (e) => {
       if (!this.isOpen()) {
@@ -201,6 +201,11 @@ class Step extends Evented {
       if (!isUndefined(selector)) {
         if (matchesSelector(e.target, selector)) {
           this.tour.next();
+        } else if (!isUndefined(depth)){
+            // depth can currently only be 1 whilst testing
+            if (matchesSelector(e.target.parentElement, selector)) {
+                this.tour.next()
+            }
         }
       } else {
         if (this.el && e.target === this.el) {

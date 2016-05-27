@@ -72,7 +72,7 @@ gulp.task('css:docs', function() {
 
 // Make a copy of tether available to those not using bundling
 gulp.task('copy-tether', function() {
-  gulp.src('./bower_components/tether/tether.js')
+  gulp.src('./bower_components/tether/dist/js/tether.js')
     .pipe(gulp.dest(distDir + '/js'));
 });
 

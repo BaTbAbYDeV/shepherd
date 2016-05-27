@@ -1,15 +1,4 @@
 /*! tether-shepherd 1.7.0 */
-
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(["tether"], factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require('tether'));
-  } else {
-    root.Shepherd = factory(root.Tether);
-  }
-}(this, function(Tether) {
-
 /* global Tether */
 
 'use strict';
@@ -738,6 +727,3 @@ var Tour = (function (_Evented2) {
 })(Evented);
 
 extend(Shepherd, { Tour: Tour, Step: Step, Evented: Evented });
-return Shepherd;
-
-}));

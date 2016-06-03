@@ -1,4 +1,4 @@
-/*! tether-shepherd 1.7.0 */
+/*! tether-shepherd 1.7.0.ld1 */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -276,7 +276,7 @@ var Step = (function (_Evented) {
 
       var opts = this.getAttachTo();
       var attachment = ATTACHMENT[opts.on || 'right'] || opts.on;
-      if (isUndefined(opts.element)) {
+      if (opts.element === null || isUndefined(opts.element)) {
         opts.element = 'viewport';
         attachment = 'middle center';
       }

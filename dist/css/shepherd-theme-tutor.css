@@ -142,7 +142,7 @@
 
 .shepherd-element.shepherd-theme-tutor {
   z-index: 9999;
-  max-width: 50em;
+  max-width: initial;
   font-size: 1em; }
   .shepherd-element.shepherd-theme-tutor.shepherd-element-attached-top.shepherd-element-attached-center.shepherd-has-title .shepherd-content:before, .shepherd-element.shepherd-theme-tutor.shepherd-element-attached-top.shepherd-element-attached-right.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before, .shepherd-element.shepherd-theme-tutor.shepherd-element-attached-top.shepherd-element-attached-left.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before {
     border-bottom-color: #303030; }

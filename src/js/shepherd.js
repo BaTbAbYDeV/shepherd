@@ -214,7 +214,7 @@ class Step extends Evented {
         } else if (!isUndefined(depth)){
             // depth can currently only be 1 whilst testing
             if (matchesSelector(e.target.parentElement, selector)) {
-                this.tour.next()
+                this.tour.next();
             }
         }
       } else {
@@ -227,7 +227,10 @@ class Step extends Evented {
     let bindElement = document.body;
     // TODO: this should also bind/unbind on show/hide
     if (this.options.advanceOn.bindDirect == true) {
-        bindElement = document.querySelector(selector)
+        let directElement = document.querySelector(selector);
+        if (directElement) {
+          bindElement = directElement;
+        }
     }
     bindElement.addEventListener(event, handler);
     this.on('destroy', () => {

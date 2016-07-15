@@ -253,7 +253,7 @@ var Step = (function (_Evented) {
       var bindElement = document.body;
       // TODO: this should also bind/unbind on show/hide
       if (this.options.advanceOn.bindDirect == true) {
-        directElement = document.querySelector(selector);
+        var directElement = document.querySelector(selector);
         if (directElement) {
           bindElement = directElement;
         }

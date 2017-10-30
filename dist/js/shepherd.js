@@ -239,7 +239,7 @@ var Step = (function (_Evented) {
             _this2.tour.next();
           } else if (!isUndefined(depth)) {
             // depth can currently only be 1 whilst testing
-            if (matchesSelector(e.target.parentElement, selector)) {
+            if (matchesSelector(e.currentTarget, selector)) {
               _this2.tour.next();
             }
           }
